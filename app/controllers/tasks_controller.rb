@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
 
+  before_action :set_task, only: [:destroy]
   ## list all the tasks
   def index
     @tasks = Task.all
@@ -22,10 +23,16 @@ class TasksController < ApplicationController
     end
   end
 
+  ## delete an object
+  def destroy
+    @task.destroy
+    redirect_to action: "index"
+  end
+
   private
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = Task.find_by(id: params[:id])
   end
 
   def task_params
