@@ -1,0 +1,4 @@
+document.querySelector("#task<%= @task.id %>").outerHTML = "<%= escape_javascript(render partial: 'task', locals: {task: @task} ) %>"
+
+// Remove the "edit" form from the table
+document.querySelector("#edit-form-<%= @task.id %>").remove()

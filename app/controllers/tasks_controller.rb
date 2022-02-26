@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:destroy, :update, :edit]
 
-  before_action :set_task, only: [:destroy]
   ## list all the tasks
   def index
     @tasks = Task.all
@@ -28,6 +28,17 @@ class TasksController < ApplicationController
     @task.destroy
     redirect_to action: "index"
   end
+
+  def edit
+    respond_to :js
+  end
+
+  ## update an object
+  def update
+    @task.update(task_params)
+    redirect_to action: "index"
+  end
+
 
   private
 

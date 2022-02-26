@@ -1,0 +1,1 @@
+document.querySelector("#task<%= @task.id %>").insertAdjacentHTML('afterend', "<%= escape_javascript(render partial: 'edit') %>")
