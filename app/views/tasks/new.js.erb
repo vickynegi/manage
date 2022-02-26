@@ -1,0 +1,10 @@
+let placeholder = document.getElementById("new-form-placeholder")
+
+// Insert the partial as the content of the placeholder div
+placeholder.innerHTML = "<%= escape_javascript(render partial: 'new' ) %>"
+
+
+// Another Option:
+// Condensed both of those lines above to 1 line.
+// It's your call on what you feel is more readable.
+document.getElementById("new-form-placeholder").innerHTML = "<%= escape_javascript(render partial: 'new' ) %>"

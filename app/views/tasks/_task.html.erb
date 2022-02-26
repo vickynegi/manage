@@ -1,0 +1,7 @@
+<tr>
+  <td><h4><%= task.position %></h4></td>
+  <td><%= task.title %></td> 
+  <td><%= task.is_done %></td>
+  <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary" %></td>
+  <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+</tr>

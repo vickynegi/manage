@@ -1,0 +1,3 @@
+let tableBody = document.querySelector('tbody#tasks')
+tableBody.insertAdjacentHTML('afterbegin', "<%= escape_javascript(render partial: 'task', locals: {task: @task} ) %>")
+document.getElementById("new-form-placeholder").innerHTML = ""
