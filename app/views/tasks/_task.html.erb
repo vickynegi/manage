@@ -1,7 +1,8 @@
-<tr id="task<%= task.id %>">
-  <td><h4><%= task.position %></h4></td>
-  <td><%= task.title %></td> 
-  <td><%= task.is_done %></td>
-  <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary" , remote: true%></td>
-  <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger", remote: true %></td>
+<tr id="task<%= locals[:task].id %>">
+  <td><%= locals[:index] + 1 %></td>
+  <td><h4><%= locals[:task].position %></h4></td>
+  <td><%= locals[:task].title %></td>
+  <td><%= locals[:task].is_done %></td>
+  <td><%= link_to 'Edit', edit_task_path(locals[:task]), class: "btn btn-primary" , remote: true%></td>
+  <td><%= link_to 'Destroy', locals[:task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger", remote: true %></td>
 </tr>

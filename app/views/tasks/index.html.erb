@@ -1,23 +1,40 @@
-<div><%= link_to 'Add Task', new_task_path, remote: true, class: "btn btn-success" %></div>
-<br>
-<h1>Tasks</h1>
-<div id="new-form-placeholder"></div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Position</th>
-      <th scope="col">Title</th>
-      <th scope="col">Is Done</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody id="tasks">
-    <% if @tasks.present? %>
-      <% @tasks.each do |task| %>
-        <%= render 'task', task: task %>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .topright {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+        font-size: 18px;
+      }
+  </style>
+  </head>
+  <body>
+    <br>
+    <div class="topright"><%= link_to 'Add Task', new_task_path, remote: true, class: "btn btn-success" %></div>
+    <br>
+    <center><h3>Tasks</h3></center>
+    <div id="new-form-placeholder"></div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th scope="col">Position</th>
+          <th scope="col">Title</th>
+          <th scope="col">Is Done</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tasks">
+        <% if @tasks.present? %>
+          <% @tasks.each_with_index do |task, index| %>
+            <%= render 'task', :locals=> {:index=> index, :task=> task}  %>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </body>
+</html>
 
